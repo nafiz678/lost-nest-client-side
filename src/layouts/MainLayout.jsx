@@ -7,11 +7,15 @@ import { Outlet } from "react-router-dom";
 const MainLayout = () => {
     return (
         <div>
-            <div className="w-11/12 mx-auto mt-6">
+            <div className="w-11/12 mx-auto ">
                 <Navbar></Navbar>
             </div>
-            <Outlet></Outlet>
-            <div className="mt-96">
+
+            <div>
+                <Outlet></Outlet>
+            </div>
+            
+            <div className="">
                 <Footer></Footer>
             </div>
         </div>
