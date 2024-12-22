@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import Home from "@/pages/Home";
 import Error from "@/pages/Error";
-import LostAndFound from "@/pages/LostAndFound";
+import LostAndFound from "@/pages/AddLostAndFound";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
             element: <Home></Home>
         },
         {
-          path: "/lost-found",
+          path: "/add-lost-found",
           element: <LostAndFound></LostAndFound>
         },
         {

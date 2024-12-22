@@ -115,7 +115,7 @@ const Footer = () => {
 
                 {/* Bottom Section */}
                 <div className="flex flex-col md:flex-row items-center justify-center text-sm">
-                    <p>&copy; {new Date().getFullYear()} Lost & Found. All Rights Reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} Lost Nest. All Rights Reserved.</p>
 
                 </div>
 

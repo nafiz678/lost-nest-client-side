@@ -11,10 +11,9 @@ const MainLayout = () => {
                 <Navbar></Navbar>
             </div>
 
-            <div>
+            <div className="min-h-72">
                 <Outlet></Outlet>
             </div>
-            
             <div className="">
                 <Footer></Footer>
             </div>
