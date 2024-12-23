@@ -6,6 +6,7 @@ import router from './routes/router.jsx'
 import { ThemeProvider } from './provider/theme-provider'
 import AuthProvider from './provider/AuthProvider'
 import { Toaster } from 'react-hot-toast'
+import CanvasCursor from './components/Cursor'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')).render(
       <ThemeProvider>
         <RouterProvider router={router}></RouterProvider>
         <div><Toaster/></div>
+        <CanvasCursor></CanvasCursor>
       </ThemeProvider>
     </AuthProvider>
   </StrictMode>,

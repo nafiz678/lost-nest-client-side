@@ -5,6 +5,8 @@ import Error from "@/pages/Error";
 import LostAndFound from "@/pages/AddLostAndFound";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
+import PrivateRoute from "./PrivateRoute";
+import MangeMyPage from "@/pages/MangeMyPage";
 
 
 const router = createBrowserRouter([
@@ -19,7 +21,7 @@ const router = createBrowserRouter([
         },
         {
           path: "/add-lost-found",
-          element: <LostAndFound></LostAndFound>
+          element: <PrivateRoute><LostAndFound></LostAndFound></PrivateRoute>
         },
         {
           path: "/login",
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
         {
           path: "/register",
           element: <Register></Register>
+        },
+        {
+          path: "/manage-my-items",
+          element: <PrivateRoute><MangeMyPage></MangeMyPage> </PrivateRoute>
         },
 
       ]

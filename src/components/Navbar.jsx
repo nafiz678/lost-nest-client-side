@@ -78,7 +78,10 @@ const Navbar = () => {
 
                     )
                         :
-                        <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/login"}>Login</NavLink>
+                        <>
+                            <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/"}>Home</NavLink>
+                            <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/login"}>Login</NavLink>
+                        </>
                     }
 
                 </div>}
