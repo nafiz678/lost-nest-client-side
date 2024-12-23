@@ -8,6 +8,7 @@ import Register from "@/pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import MangeMyPage from "@/pages/MangeMyPage";
 import UpdateItem from "@/pages/UpdateItem";
+import AllLostAndFoundItems from "@/pages/AllLostAndFoundItems";
 
 
 const router = createBrowserRouter([
@@ -37,8 +38,12 @@ const router = createBrowserRouter([
           element: <PrivateRoute><MangeMyPage></MangeMyPage> </PrivateRoute>
         },
         {
+          path: "/allItems",
+          element: <AllLostAndFoundItems></AllLostAndFoundItems>
+        },
+        {
           path: "/updateItem/:id",
-          loader: ({params})=> fetch(`http://localhost:5000/updateItem/${params.id}`),
+          loader: ({params})=> fetch(`http://localhost:5000/item/${params.id}`),
           element: <PrivateRoute><UpdateItem></UpdateItem> </PrivateRoute>
         },
 

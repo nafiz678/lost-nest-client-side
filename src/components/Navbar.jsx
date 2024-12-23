@@ -26,6 +26,8 @@ const Navbar = () => {
                 {!loading && <div className='flex items-center justify-center'>
                     {user ? (
                         <>
+                        <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/"}>Home</NavLink>
+                        <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/allItems"}>Lost & Found Items</NavLink>
                             <button
                                 onClick={logOut}
                                 className=' hidden md:inline-block  bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg'
@@ -50,7 +52,7 @@ const Navbar = () => {
                                     tabIndex={0}
                                     className='menu menu-sm gap-2 dropdown-content z-[1] p-2 shadow border rounded-box w-52'
                                 >
-                                    <li><NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 py-2 text-black`} to={"/"}>Home</NavLink></li>
+                                    <h2 className={`text-xl border text-center p-2 rounded-lg`} to={"/"}>{user.displayName}</h2>
                                     <li>
                                         <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 py-2 text-black`} to={"/add-lost-found"}>Add Lost & Found</NavLink>
                                     </li>
