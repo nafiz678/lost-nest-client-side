@@ -7,6 +7,7 @@ import Login from "@/pages/Login";
 import Register from "@/pages/Register";
 import PrivateRoute from "./PrivateRoute";
 import MangeMyPage from "@/pages/MangeMyPage";
+import UpdateItem from "@/pages/UpdateItem";
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
         {
           path: "/manage-my-items",
           element: <PrivateRoute><MangeMyPage></MangeMyPage> </PrivateRoute>
+        },
+        {
+          path: "/updateItem/:id",
+          loader: ({params})=> fetch(`http://localhost:5000/updateItem/${params.id}`),
+          element: <PrivateRoute><UpdateItem></UpdateItem> </PrivateRoute>
         },
 
       ]

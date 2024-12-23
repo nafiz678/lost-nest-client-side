@@ -1,4 +1,5 @@
 import { AuthContext } from "@/provider/AuthProvider";
+import axios from "axios";
 import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -6,9 +7,10 @@ import "react-datepicker/dist/react-datepicker.css";
 const LostFoundForm = () => {
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
+    
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.target
 
@@ -21,7 +23,7 @@ const LostFoundForm = () => {
         const contactName = form.contactName.value
         const contactEmail = form.contactEmail.value
 
-        const data = {
+        const formData = {
             postType,
             thumbnail,
             title,
@@ -33,15 +35,24 @@ const LostFoundForm = () => {
             startDate
         };
 
-        console.log(data);
-        // Add your form submission logic here
+        console.log(formData);
+
+        const {data}  = await axios.post(`${import.meta.env.VITE_API_URL}/add-item`, formData)
+        console.log(data)
+        if(data.insertedId)
+        {
+            form.reset()
+            alert("Added successfully")
+            // navigate
+        }
+
     };
 
     return (
         <div className=" bg-gray-100 dark:bg-gray-900 py-14">
             <form
                 onSubmit={handleSubmit}
-                className="max-w-lg mx-auto px-8 py-4 border bg-white dark:bg-gray-800 shadow-md rounded-md"
+                className="max-w-xl mx-auto px-8 py-4 border bg-white dark:bg-gray-800 shadow-md rounded-md"
             >
                 <h2 className="text-xl font-bold mb-4">Lost and Found Form</h2>
 
@@ -95,9 +106,9 @@ const LostFoundForm = () => {
                     required
                 >
                     <option value="">Select Category</option>
-                    <option value="pets">Pets</option>
-                    <option value="documents">Documents</option>
-                    <option value="gadgets">Gadgets</option>
+                    <option value="pets">Pet</option>
+                    <option value="documents">Document</option>
+                    <option value="gadgets">Gadget</option>
                 </select>
 
                 {/* Location */}
