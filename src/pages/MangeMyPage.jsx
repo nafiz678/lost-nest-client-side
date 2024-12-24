@@ -76,10 +76,10 @@ const MangeMyPage = () => {
             {loader ? (
                 <Loader></Loader>
             ) : items.length > 0 ? (
-                <table className="table">
+                <table className="table ">
                     {/* head */}
                     <thead>
-                        <tr>
+                        <tr className="dark:text-gray-100">
                             <th></th>
                             <th>Title</th>
                             <th>Location</th>
@@ -113,7 +113,7 @@ const MangeMyPage = () => {
                                     {item.location}
                                     <br />
                                     <span className="badge whitespace-nowrap badge-ghost badge-sm">
-                                        Post Type: {item.status}
+                                        Post Type: {item.postType}
                                     </span>
                                 </td>
                                 <td>{new Intl.DateTimeFormat('en-US', {

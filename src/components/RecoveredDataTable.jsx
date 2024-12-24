@@ -16,7 +16,7 @@ const RecoveredDataTable = ({ items }) => {
             <table className="table">
                 {/* head */}
                 <thead>
-                    <tr>
+                    <tr className="dark:text-gray-100">
                         <th></th>
                         <th>Title</th>
                         <th>Location</th>

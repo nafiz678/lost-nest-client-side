@@ -33,6 +33,7 @@
     "shadcn-ui": "^0.9.4",
     "sort-by": "^1.2.0",
     "styled-components": "^6.1.13",
+    "swiper": "^11.1.15",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
   },

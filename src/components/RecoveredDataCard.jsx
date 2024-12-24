@@ -12,7 +12,7 @@ const RecoveredDataTable = ({ items }) => {
         setNewItems(newRecoveredItems)
     }, [items])
     return (
-        <div className="grid max-w-7xl mx-auto my-20 items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-4">
+        <div className="grid w-11/12 mx-auto my-20 items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-4">
             {newItems.map(item =>
                 <ItemsCard key={item._id} item={item}></ItemsCard>
             )}

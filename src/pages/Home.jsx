@@ -1,9 +1,16 @@
+import NewlyAddedPost from "@/components/NewlyAddedPost";
+import Slider from "@/components/Slider";
 
 
 const Home = () => {
     return (
         <div>
-            this is Home
+            <div>
+                <Slider></Slider>
+            </div>
+            <div className="">
+                <NewlyAddedPost></NewlyAddedPost>
+            </div>
         </div>
     );
 };
