@@ -4,12 +4,14 @@ import axios from "axios";
 import { useContext, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 const ModalForm = ({ item }) => {
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
     const modalRef = useRef(null);
+    const navigate = useNavigate()
 
     const handleSubmit = async(e) => {
         e.preventDefault()
@@ -34,7 +36,7 @@ const ModalForm = ({ item }) => {
             if (data.insertedId) {
                 form.reset();
                 toast.success("Recovered successfully");
-                // navigate
+                navigate("/allRecovered")
             }  
         } catch (error) {
             if (error.response) {

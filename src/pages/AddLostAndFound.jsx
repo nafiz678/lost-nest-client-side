@@ -4,10 +4,12 @@ import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const LostFoundForm = () => {
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
+    const navigate = useNavigate()
     
 
 
@@ -45,7 +47,7 @@ const LostFoundForm = () => {
         {
             form.reset()
             toast.success("Added successfully")
-            // navigate
+            navigate("/myItems")
         }
 
     };

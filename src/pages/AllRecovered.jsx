@@ -1,3 +1,6 @@
+import Loader from "@/components/Loader";
+import RecoveredDataCard from "@/components/RecoveredDataCard";
+import RecoveredDataTable from "@/components/RecoveredDataTable";
 import { AuthContext } from "@/provider/AuthProvider";
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
@@ -40,7 +43,22 @@ const AllRecovered = () => {
                 </div>
             </div>
 
-            
+            <div className="overflow-x-auto my-10">
+            {loader ? (
+                <Loader></Loader>
+            ) : items.length > 0 ?  
+            toggle ? 
+            <RecoveredDataTable items={items}></RecoveredDataTable> 
+            :
+            <RecoveredDataCard items={items}></RecoveredDataCard>
+
+            : 
+            (
+                <div className="text-center h-40 w-auto text-gray-500 text-xl md:text-3xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-yellow-500">
+                    No items data from &quot;{user.email}&quot;.
+                </div>
+            )}
+        </div>
         </div>
     );
 };
