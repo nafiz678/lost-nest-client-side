@@ -1,6 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
 import auth from '@/firebase/firebase'
+import axios from 'axios';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth'
 import { createContext, useEffect, useState } from 'react'
@@ -13,22 +14,22 @@ const AuthProvider = ({ children }) => {
 
 
   const provider = new GoogleAuthProvider();
-  const googleLogin = () =>{
+  const googleLogin = () => {
     setLoading(true)
     return signInWithPopup(auth, provider)
   }
 
-  const createUser = (email, password)=>{
+  const createUser = (email, password) => {
     setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password)
   }
-  
-  const updateUser = (info) =>{
+
+  const updateUser = (info) => {
     setLoading(true)
     return updateProfile(auth.currentUser, info)
   }
 
-  const signInUser = (email, password) =>{
+  const signInUser = (email, password) => {
     setLoading(true)
     return signInWithEmailAndPassword(auth, email, password)
   }
@@ -41,10 +42,18 @@ const AuthProvider = ({ children }) => {
   // onAuthStateChange
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async currentUser => {
-      setUser(currentUser)
-        console.log('CurrentUser-->', currentUser)
-        setLoading(false)
-      
+      console.log('CurrentUser-->', currentUser)
+      if (currentUser?.email) {
+        setUser(currentUser)
+        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/jwt`, { email: currentUser?.email }, { withCredentials: true })
+
+        console.log(data)
+      } else {
+        setUser(currentUser)
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/logout`, { withCredentials: true })
+      }
+
+      setLoading(false)
     })
     return () => {
       return unsubscribe()
