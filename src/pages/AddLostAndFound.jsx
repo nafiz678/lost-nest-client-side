@@ -33,7 +33,8 @@ const LostFoundForm = () => {
             location,
             contactName,
             contactEmail,
-            startDate
+            startDate,
+            status: "notRecovered"
         };
 
         console.log(formData);

@@ -113,7 +113,7 @@ const MangeMyPage = () => {
                                     {item.location}
                                     <br />
                                     <span className="badge whitespace-nowrap badge-ghost badge-sm">
-                                        Post Type: {item.postType}
+                                        Post Type: {item.status}
                                     </span>
                                 </td>
                                 <td>{new Intl.DateTimeFormat('en-US', {

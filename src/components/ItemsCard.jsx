@@ -6,9 +6,6 @@ import { Link } from "react-router-dom";
 const ItemsCard = ({ item }) => {
 
 
-    console.log(item)
-
-
     return (
         <div className="rounded-lg shadow-md overflow-hidden bg-gradient-to-br from-teal-400 via-cyan-500 to-emerald-600 text-white transform transition-transform duration-300 hover:scale-105 flex items-start justify-start md:h-60 py-4">
             <img src={item.thumbnail} className="h-52 w-52 object-cover rounded-tr-lg rounded-br-lg" alt="" />

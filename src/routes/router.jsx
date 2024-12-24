@@ -10,6 +10,7 @@ import MangeMyPage from "@/pages/MangeMyPage";
 import UpdateItem from "@/pages/UpdateItem";
 import AllLostAndFoundItems from "@/pages/AllLostAndFoundItems";
 import CardDetailsPage from "@/pages/CardDetailsPage";
+import AllRecovered from "@/pages/AllRecovered";
 
 
 const router = createBrowserRouter([
@@ -35,8 +36,12 @@ const router = createBrowserRouter([
           element: <Register></Register>
         },
         {
-          path: "/manage-my-items",
+          path: "/myItems",
           element: <PrivateRoute><MangeMyPage></MangeMyPage> </PrivateRoute>
+        },
+        {
+          path: "/allRecovered",
+          element: <PrivateRoute><AllRecovered></AllRecovered> </PrivateRoute>
         },
         {
           path: "/allItems",

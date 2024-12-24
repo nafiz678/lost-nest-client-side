@@ -1,10 +1,11 @@
-import { useContext } from 'react';
+// import { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { toast } from 'react-hot-toast';
-import { AuthContext } from '@/provider/AuthProvider';
+// import { toast } from 'react-hot-toast';
+// import { AuthContext } from '@/provider/AuthProvider';
+import ModalForm from '@/components/ModalForm';
 
 const CardDetailsPage = () => {
-    const { user } = useContext(AuthContext)
+    // const { user } = useContext(AuthContext)
 
     const item = useLoaderData()
     console.log(item)
@@ -38,7 +39,7 @@ const CardDetailsPage = () => {
                                 day: 'numeric'
                             }).format(new Date(item.startDate))}
                         </p>
-                        <div>
+                        <div className='text-gray-300'>
                             <h2 className=' mt-4 font-semibold text-xl'> Post Owner info</h2>
                             <p className='mt-2'>Email: {item.contactEmail}</p>
                             <p className='mt-1'>Name: {item.contactName}</p>
@@ -53,17 +54,18 @@ const CardDetailsPage = () => {
                     <div className='flex items-center justify-around flex-col gap-6'>
                         {item.postType === "Lost" 
                         ?
-                        <button className=" bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-xl">
+                        <button onClick={() => document.getElementById('my_modal_5').showModal()} className=" bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-xl">
                             Found This!
                         </button>
                         :
-                        <button className=" bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-xl">
+                        <button onClick={() => document.getElementById('my_modal_5').showModal()} className=" bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-6 rounded-xl">
                             This is Mine!
                         </button>
                      }
                     </div>
                 </div>
             </div>
+            <ModalForm item={item}></ModalForm>
         </div>
     );
 };
