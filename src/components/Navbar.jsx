@@ -38,23 +38,24 @@ const Navbar = () => {
                         <li>
                             <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 py-2 text-black`} to={"/"}>Home</NavLink>
                         </li>
-                        
-                        
+
+
                         <li>
                             <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 py-2 text-black`} to={"/allItems"}>Lost & Found Items</NavLink>
                         </li>
-                        {user ? 
-                        <li >
-                        <button
-                            onClick={logOut}
-                            className='md:hidden flex w-full bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-2 mr-2 px-3 rounded-lg'
-                        >
-                            Logout
-                        </button>
-                    </li>
+                        {/* {user ? 
+                    //     <li >
+                    //     <button
+                    //         onClick={logOut}
+                    //         className='md:hidden flex w-full bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-2 mr-2 px-3 rounded-lg'
+                    //     >
+                    //         Logout
+                    //     </button>
+                    // </li>
+                    ""
                      : 
                      ""
-                     }
+                     } */}
 
 
                     </ul>
@@ -67,14 +68,12 @@ const Navbar = () => {
 
             <div className=" lg:flex">
                 <ul className="menu gap-2 menu-horizontal px-1">
-
-
                 </ul>
 
                 {!loading && <div className='flex items-center justify-center'>
                     {user ? (
                         <>
-                            <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/"}>Home</NavLink>
+                            <NavLink className={`bg-[#f0c35e] hidden md:inline-block hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/"}>Home</NavLink>
                             <NavLink className={`bg-[#f0c35e] hidden md:inline-block hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/allItems"}>Lost & Found Items</NavLink>
                             <button
                                 onClick={logOut}
