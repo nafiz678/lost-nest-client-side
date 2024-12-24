@@ -26,8 +26,7 @@ const Navbar = () => {
                 {!loading && <div className='flex items-center justify-center'>
                     {user ? (
                         <>
-                        <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/"}>Home</NavLink>
-                        <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/allItems"}>Lost & Found Items</NavLink>
+                            <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/"}>Home</NavLink>
                             <button
                                 onClick={logOut}
                                 className=' hidden md:inline-block  bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg'
@@ -50,7 +49,7 @@ const Navbar = () => {
                                 </div>
                                 <ul
                                     tabIndex={0}
-                                    className='menu menu-sm gap-2 dropdown-content z-[1] p-2 shadow border rounded-box w-52'
+                                    className='menu bg-gray-100 dark:bg-gray-800 menu-sm gap-2 dropdown-content z-[1] p-2 shadow border rounded-box w-52'
                                 >
                                     <h2 className={`text-xl border text-center p-2 rounded-lg`} to={"/"}>{user.displayName}</h2>
                                     <li>
@@ -61,6 +60,9 @@ const Navbar = () => {
                                     </li>
                                     <li>
                                         <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 py-2 text-black`} to={"/manage-my-items"}>Manage My Items</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/allItems"}>Lost & Found Items</NavLink>
                                     </li>
                                     <li>
                                         <button

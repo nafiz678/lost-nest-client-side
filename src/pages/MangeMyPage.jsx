@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { RiFileEditFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
+import toast from "react-hot-toast";
 
 
 
@@ -14,21 +15,59 @@ const MangeMyPage = () => {
     const [loader, setLoader] = useState(true)
 
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/user-items/${user.email}`);
-                setItems(data);
-            } catch (error) {
-                console.error("Error fetching user data:", error);
-                setItems([]); // Optionally set items to an empty array on error
-            } finally {
-                setLoader(false); // Ensure loader is disabled even if the request fails
-            }
-        };
+        
         fetchUserData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user.email])
 
-    console.log(items)
+    const fetchUserData = async () => {
+        try {
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/user-items/${user.email}`);
+            setItems(data);
+        } catch (error) {
+            console.error("Error fetching user data:", error);
+            setItems([]); 
+        } finally {
+            setLoader(false);
+        }
+    };
+
+    const handleDelete = async (id) => {
+        try {
+          const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/delete/${id}`)
+          console.log(data)
+          toast.success("Data deleted successfully")
+        //   const remaining = items.filter(item=> item._id !== id)
+        //   setItems(remaining)
+        fetchUserData()
+        } catch (error) {
+          console.log(error)
+          toast.error("Error happen")
+        }
+    
+      }
+    
+      const modernDelete = (id) => {
+        toast(
+          (t) => (
+            <div className='flex gap-2 items-center'>
+              <div>Are u <b>sure?</b></div>
+    
+              <div>
+                <button 
+                className='bg-red-500 text-white text-sm font-medium px-3 py-1 rounded-full mr-1 hover:bg-red-600'
+                onClick={()=> {
+                  handleDelete(id)
+                  toast.dismiss(t.id)
+                }}>Delete</button>
+                <button
+                className='bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-full hover:bg-green-600'
+                onClick={() => toast.dismiss(t.id)}>Cancel</button>
+              </div>
+            </div>
+          )
+        );
+      }
 
 
 
@@ -87,6 +126,7 @@ const MangeMyPage = () => {
                                         <RiFileEditFill></RiFileEditFill>
                                     </Link>
                                     <button
+                                        onClick={() => modernDelete(item._id)}
                                         className="btn btn-ghost text-xl"
                                     >
                                         <MdDeleteForever />

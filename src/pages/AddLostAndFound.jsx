@@ -3,6 +3,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import toast from "react-hot-toast";
 
 const LostFoundForm = () => {
     const { user } = useContext(AuthContext)
@@ -42,7 +43,7 @@ const LostFoundForm = () => {
         if(data.insertedId)
         {
             form.reset()
-            alert("Added successfully")
+            toast.success("Added successfully")
             // navigate
         }
 
