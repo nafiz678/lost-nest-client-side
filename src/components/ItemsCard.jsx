@@ -2,13 +2,14 @@
 
 import { Link } from "react-router-dom";
 
-
 const ItemsCard = ({ item }) => {
-
-
     return (
-        <div className="rounded-lg shadow-md overflow-hidden bg-gradient-to-br from-teal-400 via-cyan-500 to-emerald-600 text-white transform transition-transform duration-300 hover:scale-105 flex flex-col xl:flex-row items-center xl:items-start justify-center md:justify-start py-4">
-            <img src={item.thumbnail} className="h-52 w-52 object-cover md:rounded-tr-lg md:rounded-br-lg rounded-lg " alt="" />
+        <div className="rounded-lg shadow-md overflow-hidden bg-gradient-to-br from-teal-400 via-cyan-500 to-emerald-600 text-white transform transition-transform duration-300 hover:scale-105 flex flex-col xl:flex-row items-center xl:items-start justify-center md:justify-start py-4 dark:bg-gray-800">
+            <img 
+                src={item.thumbnail} 
+                className="h-52 w-52 object-cover md:rounded-tr-lg md:rounded-br-lg rounded-lg" 
+                alt="" 
+            />
             <div className="pl-4 pr-3">
                 <div>
                     <div className="overflow-y-auto h-8">
@@ -18,16 +19,15 @@ const ItemsCard = ({ item }) => {
                         <strong>Post Type:</strong> {item.postType}
                     </p>
                     <div className="overflow-y-auto h-8 xl:h-auto">
-                    <p className="text-white  text-opacity-90 leading-relaxed">
-                        <strong>Location:</strong> {item.location}
-                    </p>
+                        <p className="text-white text-opacity-90 leading-relaxed">
+                            <strong>Location:</strong> {item.location}
+                        </p>
                     </div>
-                    
                 </div>
                 <button className="bg-white mt-4 text-teal-600 font-semibold py-2 px-4 rounded shadow hover:shadow-lg hover:bg-teal-50 transition-all duration-300">
-                <Link to={`/item/${item._id}`}>
-                    Explore More
-                </Link>
+                    <Link to={`/item/${item._id}`}>
+                        Explore More
+                    </Link>
                 </button>
             </div>
         </div>

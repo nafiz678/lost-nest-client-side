@@ -13,6 +13,9 @@ import CardDetailsPage from "@/pages/CardDetailsPage";
 import AllRecovered from "@/pages/AllRecovered";
 
 
+
+
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -49,12 +52,12 @@ const router = createBrowserRouter([
         },
         {
           path: "/updateItem/:id",
-          loader: ({params})=> fetch(`http://localhost:5000/item/${params.id}`),
+          loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}/item/${params.id}`),
           element: <PrivateRoute><UpdateItem></UpdateItem> </PrivateRoute>
         },
         {
           path: "/item/:id",
-          loader: ({params})=> fetch(`http://localhost:5000/item/${params.id}`),
+          loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}/item/${params.id}`),
           element: <PrivateRoute> <CardDetailsPage></CardDetailsPage> </PrivateRoute>
         },
 

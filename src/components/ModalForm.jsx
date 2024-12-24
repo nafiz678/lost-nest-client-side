@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
+import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { AuthContext } from "@/provider/AuthProvider";
-import axios from "axios";
 import { useContext, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import toast from "react-hot-toast";
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const ModalForm = ({ item }) => {
     const { user } = useContext(AuthContext)
+    const myAxios = useAxiosSecure()
     const [startDate, setStartDate] = useState(new Date());
     const modalRef = useRef(null);
     const navigate = useNavigate()
@@ -30,8 +31,7 @@ const ModalForm = ({ item }) => {
 
 
         try {
-            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/recoveredItems`, recoverItem);
-            console.log(data);
+            const { data } = await myAxios.post(`/recoveredItems`, recoverItem);
         
             if (data.insertedId) {
                 form.reset();
@@ -39,8 +39,10 @@ const ModalForm = ({ item }) => {
                 navigate("/allRecovered")
             }  
         } catch (error) {
+            toast.error(error?.data?.message || "You have already recovered this item");
             if (error.response) {
                 // Error response from the server
+                console.log(error)
                 console.log(error.response.data); // Log server error message
                 toast.error(error.response.data.message || "You have already recovered this item");
             }

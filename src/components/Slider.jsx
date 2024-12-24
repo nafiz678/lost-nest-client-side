@@ -50,7 +50,6 @@ const Slider = () => {
 
     return (
         <div className="relative w-full my-10">
-            {/* Main Slider */}
             <Swiper
                 ref={swiperRef}
                 modules={[Navigation, Pagination, Autoplay]}
@@ -101,7 +100,6 @@ const Slider = () => {
                 ))}
             </Swiper>
 
-            {/* Thumbnail Navigation */}
             <div className="mt-6 flex justify-center space-x-4">
                 <Swiper
                     modules={[Navigation]}
