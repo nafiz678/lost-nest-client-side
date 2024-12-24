@@ -1,15 +1,7 @@
 /* eslint-disable react/prop-types */
 
-import { useEffect, useState } from "react";
 
-
-const RecoveredDataTable = ({ items }) => {
-    const [newItems, setNewItems] = useState([])
-
-    useEffect(() => {
-        const newRecoveredItems = items.filter(item => item.status === "Recovered")
-        setNewItems(newRecoveredItems)
-    }, [items])
+const RecoveredDataTable = ({ newItems }) => {
 
     return (
         <div>

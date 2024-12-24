@@ -1,3 +1,4 @@
+import useDocumentTitle from "@/components/Title";
 import { AuthContext } from "@/provider/AuthProvider";
 import axios from "axios";
 import { useContext, useState } from "react";
@@ -7,6 +8,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const LostFoundForm = () => {
+    useDocumentTitle("Add lost or found item || Lost Nest");
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate()

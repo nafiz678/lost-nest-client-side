@@ -1,20 +1,24 @@
 import Loader from "@/components/Loader";
 import RecoveredDataCard from "@/components/RecoveredDataCard";
 import RecoveredDataTable from "@/components/RecoveredDataTable";
+import useDocumentTitle from "@/components/Title";
+import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { AuthContext } from "@/provider/AuthProvider";
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 
 const AllRecovered = () => {
+    useDocumentTitle("All Recovered items || Lost Nest");
     const {user} = useContext(AuthContext)
+    const myAxios = useAxiosSecure()
     const [toggle, setToggle] = useState(true)
     const [loader, setLoader] = useState(true)
     const [items, setItems] = useState([])
+    const [newItems, setNewItems] = useState([])
 
     useEffect(() => {
         const fetchRecoverData = async () => {
             try {
-                const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/recoveredItems/${user.email}`);
+                const { data } = await myAxios.get(`/recoveredItems/${user.email}`);
                 setItems(data);
             } catch (error) {
                 console.error("Error fetching user data:", error);
@@ -24,8 +28,13 @@ const AllRecovered = () => {
             }
         };
         fetchRecoverData()
-    }, [user.email])
+    }, [myAxios, user.email])
     console.log(items)
+
+    useEffect(() => {
+        const newRecoveredItems = items.filter(item => item.status === "Recovered")
+        setNewItems(newRecoveredItems)
+    }, [items])
 
     return (
         <div>
@@ -46,16 +55,16 @@ const AllRecovered = () => {
             <div className="overflow-x-auto my-10">
             {loader ? (
                 <Loader></Loader>
-            ) : items.length > 0 ?  
+            ) : newItems.length > 0 ?  
             toggle ? 
-            <RecoveredDataTable items={items}></RecoveredDataTable> 
+            <RecoveredDataTable newItems={newItems}></RecoveredDataTable> 
             :
-            <RecoveredDataCard items={items}></RecoveredDataCard>
+            <RecoveredDataCard newItems={newItems}></RecoveredDataCard>
 
             : 
             (
                 <div className="text-center h-40 w-auto text-gray-500 text-xl md:text-3xl lg:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-yellow-500">
-                    No items data from &quot;{user.email}&quot;.
+                    No recovered data from &quot;{user.email}&quot;.
                 </div>
             )}
         </div>
