@@ -50,7 +50,9 @@ const AuthProvider = ({ children }) => {
         console.log(data)
       } else {
         setUser(currentUser)
-        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/logout`, { withCredentials: true })
+        const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/logout`, { withCredentials: true })
+        console.log(data)
+        setLoading(false)
       }
 
       setLoading(false)

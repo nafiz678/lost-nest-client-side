@@ -1,16 +1,17 @@
 import Loader from "@/components/Loader";
 import { AuthContext } from "@/provider/AuthProvider";
-import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { RiFileEditFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { MdDeleteForever } from "react-icons/md";
 import toast from "react-hot-toast";
 import useAxiosSecure from "@/hooks/useAxiosSecure";
+import useDocumentTitle from "@/components/Title";
 
 
 
 const MangeMyPage = () => {
+    useDocumentTitle("My posts || Lost Nest");
     const myAxios = useAxiosSecure()
     const { user } = useContext(AuthContext)
     const [items, setItems] = useState([])
@@ -36,14 +37,12 @@ const MangeMyPage = () => {
 
     const handleDelete = async (id) => {
         try {
-            const { data } = await axios.delete(`${import.meta.env.VITE_API_URL}/delete/${id}`)
-            console.log(data)
+            const { data } = await myAxios.delete(`/delete/${id}`)
             toast.success("Data deleted successfully")
             //   const remaining = items.filter(item=> item._id !== id)
             //   setItems(remaining)
             fetchUserData()
         } catch (error) {
-            console.log(error)
             toast.error("Error happen")
         }
 

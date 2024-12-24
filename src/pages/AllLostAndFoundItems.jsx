@@ -1,5 +1,6 @@
 import ItemsCard from "@/components/ItemsCard";
 import Loader from "@/components/Loader";
+import useDocumentTitle from "@/components/Title";
 // import { AuthContext } from "@/provider/AuthProvider";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -7,6 +8,7 @@ import { useEffect, useState } from "react";
 
 const AllLostAndFoundItems = () => {
     // const { user } = useContext(AuthContext)
+    useDocumentTitle("Lost and found items || Lost Nest");
     const [loader, setLoader] = useState(true)
     const [items, setItems] = useState([])
     const [search, setSearch] = useState("")

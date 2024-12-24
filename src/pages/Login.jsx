@@ -1,12 +1,15 @@
+import useDocumentTitle from "@/components/Title";
 import { AuthContext } from "@/provider/AuthProvider";
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
+    useDocumentTitle("Login || Lost Nest");
     const {signInUser, googleLogin} = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -19,7 +22,7 @@ const Login = () => {
         .then(res=>{
             console.log(res.user)
             toast.success("Login successful");
-            navigate("/")
+            navigate(location?.state ? location.state : "/")
         })
         .catch(err=>{
             console.log(err.message)

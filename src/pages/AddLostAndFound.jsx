@@ -1,6 +1,6 @@
 import useDocumentTitle from "@/components/Title";
+import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { AuthContext } from "@/provider/AuthProvider";
-import axios from "axios";
 import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const LostFoundForm = () => {
     useDocumentTitle("Add lost or found item || Lost Nest");
+    const myAxios = useAxiosSecure()
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date());
     const navigate = useNavigate()
@@ -43,7 +44,7 @@ const LostFoundForm = () => {
 
         console.log(formData);
 
-        const {data}  = await axios.post(`${import.meta.env.VITE_API_URL}/add-item`, formData)
+        const {data}  = await myAxios.post(`/add-item`, formData)
         console.log(data)
         if(data.insertedId)
         {

@@ -6,11 +6,14 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import animatedImage from "../assets/updaet animation lottie.json"
 import { Player } from "@lottiefiles/react-lottie-player";
-import axios from "axios";
 import toast from "react-hot-toast";
+import useAxiosSecure from "@/hooks/useAxiosSecure";
+import useDocumentTitle from "@/components/Title";
 
 function LostAndFoundForm() {
+    useDocumentTitle("Update item || Lost Nest");
     const navigate = useNavigate()
+    const myAxios = useAxiosSecure()
     const item = useLoaderData()
     const { user } = useContext(AuthContext)
     const [startDate, setStartDate] = useState(new Date(item.startDate));
@@ -43,7 +46,7 @@ function LostAndFoundForm() {
 
         console.log(formData);
 
-        const {data}  = await axios.put(`${import.meta.env.VITE_API_URL}/updateItem/${item._id}`, formData)
+        const {data}  = await myAxios.put(`/updateItem/${item._id}`, formData)
         console.log(data)
         if(data.modifiedCount)
         {

@@ -1,3 +1,4 @@
+import useDocumentTitle from "@/components/Title";
 import { AuthContext } from "@/provider/AuthProvider";
 import { useContext } from "react";
 import toast from "react-hot-toast";
@@ -5,6 +6,7 @@ import { FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+    useDocumentTitle("Register || Lost Nest");
     const navigate = useNavigate()
     const { createUser, updateUser, setUser, googleLogin } = useContext(AuthContext)
 

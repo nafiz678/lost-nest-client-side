@@ -3,17 +3,13 @@ import { useLoaderData } from 'react-router-dom';
 // import { toast } from 'react-hot-toast';
 // import { AuthContext } from '@/provider/AuthProvider';
 import ModalForm from '@/components/ModalForm';
+import useDocumentTitle from '@/components/Title';
 
 const CardDetailsPage = () => {
     // const { user } = useContext(AuthContext)
+    useDocumentTitle("Item details || Lost Nest");
 
     const item = useLoaderData()
-    console.log(item)
-
-
-
-
-    
 
     return (
         <div className={`min-h-screen flex items-center justify-center p-6 relative bg-cover bg-center  w-full`}
