@@ -37,7 +37,7 @@ const Register = () => {
                 navigate("/")
             })
             .catch(err => {
-                console.log(err.message)
+                
             })
 
 
@@ -46,12 +46,12 @@ const Register = () => {
     const handleGoogleLogin = () => {
         googleLogin()
         .then(res=>{
-            console.log(res.user)
+            
             toast.success("Registration successful")
             navigate("/")
         })
         .catch(err => {
-            console.log(err.message)
+            
             toast.error(err.message)
         })
 

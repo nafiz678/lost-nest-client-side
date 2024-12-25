@@ -36,9 +36,7 @@ const AllLostAndFoundItems = () => {
         }
         fetchAll()
     }, [search])
-
-    // console.log(items)
-    // console.log(search)  
+ 
 
 
     return (

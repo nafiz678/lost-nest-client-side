@@ -16,8 +16,6 @@ const ModalForm = ({ item }) => {
 
     const handleSubmit = async(e) => {
         e.preventDefault()
-        console.log(item.postType)
-
 
         const form = e.target
 
@@ -41,9 +39,6 @@ const ModalForm = ({ item }) => {
         } catch (error) {
             toast.error(error?.data?.message || "You have already recovered this item");
             if (error.response) {
-                // Error response from the server
-                console.log(error)
-                console.log(error.response.data); // Log server error message
                 toast.error(error.response.data.message || "You have already recovered this item");
             }
         }

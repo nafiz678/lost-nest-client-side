@@ -42,10 +42,9 @@ const LostFoundForm = () => {
             status: "notRecovered"
         };
 
-        console.log(formData);
 
         const {data}  = await myAxios.post(`/add-item`, formData)
-        console.log(data)
+        
         if(data.insertedId)
         {
             form.reset()

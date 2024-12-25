@@ -24,7 +24,6 @@ const NewlyAddedPost = () => {
         fetchData();
     }, []);
 
-    console.log(items);
 
     const containerVariants = {
         hidden: { opacity: 0 },

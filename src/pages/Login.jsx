@@ -20,12 +20,12 @@ const Login = () => {
 
         signInUser(email, password)
         .then(res=>{
-            console.log(res.user)
+            
             toast.success("Login successful");
             navigate(location?.state ? location.state : "/")
         })
         .catch(err=>{
-            console.log(err.message)
+            
             toast.error(err.message)
         })
     }
@@ -33,12 +33,12 @@ const Login = () => {
     const handleGoogleLogin = () => {
         googleLogin()
         .then(res=>{
-            console.log(res.user)
+            
             toast.success("Login successful")
             navigate("/")
         })
         .catch(err => {
-            console.log(err.message)
+            
             toast.error(err.message)
         })
 

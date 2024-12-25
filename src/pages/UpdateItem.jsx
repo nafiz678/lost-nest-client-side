@@ -44,10 +44,9 @@ function LostAndFoundForm() {
             startDate
         };
 
-        console.log(formData);
 
         const {data}  = await myAxios.put(`/updateItem/${item._id}`, formData)
-        console.log(data)
+        
         if(data.modifiedCount)
         {
             form.reset()
