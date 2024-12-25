@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import Loader from "./Loader";
 import ItemsCard from "./ItemsCard";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
+
 
 const NewlyAddedPost = () => {
     const [loader, setLoader] = useState(true);
@@ -30,23 +31,31 @@ const NewlyAddedPost = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.5, 
+                staggerChildren: 0.5,
                 duration: 0.8
             }
         }
     };
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 50 }, 
-        visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } } 
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
     };
 
     return (
-        <div>
+        <div className="bg-gray-100 dark:bg-gray-900 py-16">
+            <motion.h2
+                className="text-3xl font-bold text-teal-600 dark:text-teal-400 text-center"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+            >
+                Recently Added Posts
+            </motion.h2>
             {loader ? (
                 <Loader />
             ) : (
-                <div className="my-20 w-11/12 mx-auto">
+                <div className="py-10 w-11/12 mx-auto">
                     <motion.div
                         className="grid w-11/12 mx-auto items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-4"
                         variants={containerVariants}
@@ -54,12 +63,12 @@ const NewlyAddedPost = () => {
                         animate="visible"
                     >
                         {items.map(item => (
-                            <motion.div 
-                                key={item._id} 
+                            <motion.div
+                                key={item._id}
                                 variants={itemVariants}
-                                whileInView="visible" 
+                                whileInView="visible"
                                 initial="hidden"
-                                viewport={{ once: true, amount: 0.5 }} 
+                                viewport={{ once: true, amount: 0.5 }}
                             >
                                 <ItemsCard item={item} />
                             </motion.div>

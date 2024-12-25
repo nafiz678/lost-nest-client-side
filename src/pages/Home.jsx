@@ -1,6 +1,7 @@
 import HowItWorks from "@/components/HowItWorks";
 import NewlyAddedPost from "@/components/NewlyAddedPost";
 import Slider from "@/components/Slider";
+import Statistics from "@/components/Statistics";
 import Testimonials from "@/components/Testimonials";
 import useDocumentTitle from "@/components/Title";
 
@@ -17,6 +18,9 @@ const Home = () => {
             </div>
             <div className="">
                 <HowItWorks></HowItWorks>
+            </div>
+            <div className="">
+                <Statistics></Statistics>
             </div>
             <div className="">
                 <Testimonials></Testimonials>
