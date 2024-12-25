@@ -41,7 +41,7 @@ const RecoveredDataTable = ({ newItems }) => {
                                 {item.location}
                                 <br />
                                 <span className="badge whitespace-nowrap badge-ghost badge-sm">
-                                    Post Type: {item.status}
+                                    Post Type: {item.postType}
                                 </span>
                             </td>
                             <td>{item.description.slice(0,60)}...</td>

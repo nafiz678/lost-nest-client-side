@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 
 const Testimonials = () => {
+
     const testimonials = [
         {
             id: 1,
@@ -122,10 +123,10 @@ const Testimonials = () => {
     };
 
     return (
-        <section className="bg-gray-100 py-16">
+        <section className="bg-gray-100 dark:bg-gray-900 py-16">
             <div className="container mx-auto text-center">
                 <motion.h2
-                    className="text-3xl font-bold text-teal-600"
+                    className="text-3xl font-bold text-teal-600 dark:text-teal-400"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8 }}
@@ -134,8 +135,8 @@ const Testimonials = () => {
                 </motion.h2>
                 <div className="mt-8 max-w-2xl mx-auto">
                     <motion.div
-                        className="bg-white p-6 rounded-lg shadow-lg"
-                        key={testimonials[currentIndex].id}
+                        className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg"
+                        key={testimonials[currentIndex]?.id}
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -50 }}
@@ -143,21 +144,21 @@ const Testimonials = () => {
                     >
                         <div className="flex items-center space-x-4">
                             <img
-                                src={testimonials[currentIndex].image}
-                                alt={testimonials[currentIndex].name}
+                                src={testimonials[currentIndex]?.image}
+                                alt={testimonials[currentIndex]?.name}
                                 className="w-16 h-16 rounded-full object-cover"
                             />
                             <div>
-                                <h3 className="font-semibold text-xl">
-                                    {testimonials[currentIndex].name}
+                                <h3 className="font-semibold text-xl text-gray-900 dark:text-gray-100">
+                                    {testimonials[currentIndex]?.name}
                                 </h3>
-                                <p className="text-sm text-gray-500">
-                                    {testimonials[currentIndex].location}
+                                <p className="text-sm text-gray-500 dark:text-gray-400">
+                                    {testimonials[currentIndex]?.location}
                                 </p>
                             </div>
                         </div>
-                        <p className="mt-4 text-gray-800 italic">
-                            &quot;{testimonials[currentIndex].story}&quot;
+                        <p className="mt-4 text-gray-800 dark:text-gray-300 italic">
+                            &quot;{testimonials[currentIndex]?.story}&quot;
                         </p>
                     </motion.div>
 
@@ -165,13 +166,13 @@ const Testimonials = () => {
                     <div className="mt-6 flex justify-center space-x-4">
                         <button
                             onClick={prevTestimonial}
-                            className="bg-teal-500 text-white px-4 py-2 rounded-lg shadow hover:bg-teal-400 transition duration-300"
+                            className="bg-teal-500 dark:bg-teal-600 text-white px-4 py-2 rounded-lg shadow hover:bg-teal-400 dark:hover:bg-teal-500 transition duration-300"
                         >
                             Previous
                         </button>
                         <button
                             onClick={nextTestimonial}
-                            className="bg-teal-500 text-white px-4 py-2 rounded-lg shadow hover:bg-teal-400 transition duration-300"
+                            className="bg-teal-500 dark:bg-teal-600 text-white px-4 py-2 rounded-lg shadow hover:bg-teal-400 dark:hover:bg-teal-500 transition duration-300"
                         >
                             Next
                         </button>
