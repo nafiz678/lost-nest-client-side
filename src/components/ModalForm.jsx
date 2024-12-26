@@ -39,7 +39,7 @@ const ModalForm = ({ item }) => {
             status: "recovered"
         }
 
-        if (user.email === item.contactEmail) return toast.error("Cannot recover own items")
+        // if (user.email === item.contactEmail) return toast.error("Cannot recover own items")
 
 
         try {

@@ -9,7 +9,7 @@ const ItemsCard = ({ item }) => {
                 className="h-52 w-52 object-cover md:rounded-tr-lg md:rounded-br-lg rounded-lg"
                 alt=""
             />
-            <div className="pl-4 pr-3">
+            <div className="pl-4 pr-3 flex flex-col justify-between lg:items-end">
                 <div>
                     <div className="overflow-y-auto h-8">
                         <h2 className="text-lg text-start font-semibold">{item.title}</h2>
@@ -26,7 +26,7 @@ const ItemsCard = ({ item }) => {
                 <div>
                     <button className="bg-white mt-4 text-teal-600 font-semibold py-2  rounded shadow hover:shadow-lg hover:bg-teal-50 transition-all duration-300">
                         <Link className="py-2 px-5" to={`/item/${item._id}`}>
-                            Explore More
+                            View details
                         </Link>
                     </button>
                 </div>

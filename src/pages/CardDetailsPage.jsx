@@ -43,7 +43,7 @@ const CardDetailsPage = () => {
                     </div>
 
                 </div>
-                <div className='flex justify-between items-center flex-col md:flex-row'>
+                <div className='flex justify-between items-center pl-4 flex-col md:flex-row'>
                     <p className="text-gray-400 mb-6 md:ml-10 lg:w-8/12 mt-8">
                         <strong>Description:</strong> {item.description}
                     </p>
