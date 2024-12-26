@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 import useAxiosSecure from "@/hooks/useAxiosSecure";
 import { AuthContext } from "@/provider/AuthProvider";
 import { useContext, useRef, useState } from "react";

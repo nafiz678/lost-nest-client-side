@@ -20,7 +20,7 @@ const AllLostAndFoundItems = () => {
                 const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/all-items`);
                 setItems(data);
             } catch (error) {
-                console.error("Error fetching user data:", error);
+                // console.error("Error fetching user data:", error);
                 setItems([]);
             } finally {
                 setLoader(false);

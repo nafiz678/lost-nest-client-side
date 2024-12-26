@@ -21,7 +21,7 @@ const AllRecovered = () => {
                 const { data } = await myAxios.get(`/recoveredItems/${user.email}`);
                 setItems(data);
             } catch (error) {
-                console.error("Error fetching user data:", error);
+                // console.error("Error fetching user data:", error);
                 setItems([]);
             } finally {
                 setLoader(false);
@@ -29,13 +29,8 @@ const AllRecovered = () => {
         };
         fetchRecoverData()
     }, [myAxios, user.email])
-    console.log(items)
     
-
-    // useEffect(() => {
-    //     const newRecoveredItems = items.filter(item => item.status === "Recovered")
-    //     setNewItems(newRecoveredItems)
-    // }, [items])
+    
 
     return (
         <div>

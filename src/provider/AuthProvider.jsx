@@ -1,5 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react/prop-types */
+
 import auth from '@/firebase/firebase'
 import axios from 'axios';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";

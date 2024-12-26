@@ -20,7 +20,6 @@ const MangeMyPage = () => {
     useEffect(() => {
 
         fetchUserData()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user.email])
 
     const fetchUserData = async () => {
@@ -28,7 +27,7 @@ const MangeMyPage = () => {
             const { data } = await myAxios.get(`/user-items/${user.email}`);
             setItems(data);
         } catch (error) {
-            console.error("Error fetching user data:", error);
+            // console.error("Error fetching user data:", error);
             setItems([]);
         } finally {
             setLoader(false);

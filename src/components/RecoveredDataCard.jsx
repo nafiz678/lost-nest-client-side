@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 
 import ItemsCard from "./ItemsCard";
 import RecoverCard from "./RecoverCard";
