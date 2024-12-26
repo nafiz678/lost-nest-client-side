@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 
-const RecoveredDataTable = ({ newItems }) => {
+const RecoveredDataTable = ({ items }) => {
 
     return (
         <div>
@@ -11,12 +11,12 @@ const RecoveredDataTable = ({ newItems }) => {
                     <tr className="dark:text-gray-100">
                         <th></th>
                         <th>Title</th>
-                        <th>Location</th>
-                        <th>Description</th>
+                        <th>Recovered Location & Date</th>
+                        <th>Post owner</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {newItems.map((item) => (
+                    {items.map((item) => (
                         <tr
                             key={item._id}
                         >
@@ -33,18 +33,24 @@ const RecoveredDataTable = ({ newItems }) => {
                                     </div>
                                     <div>
                                         <div className=" uppercase">{item.title}</div>
-                                        <div className="text-sm opacity-50 capitalize">{item.category}</div>
+                                        <div className="text-sm opacity-50 capitalize">{item.status}</div>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                {item.location}
+                                {item.recoverLocation}
                                 <br />
+                                {item.recoverDate && 
                                 <span className="badge whitespace-nowrap badge-ghost badge-sm">
-                                    Post Type: {item.postType}
-                                </span>
+                                    Date: {new Date(item.recoverDate).toLocaleDateString()}
+                                </span>}
                             </td>
-                            <td>{item.description.slice(0,60)}...</td>
+                            <td>
+                            
+                            {item?.contactName}
+                                <br />
+                                <span> {item?.contactEmail} </span>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

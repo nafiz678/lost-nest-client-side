@@ -51,7 +51,7 @@ const Statistics = () => {
                     animate={isInView ? { opacity: 1 } : {}}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    Showcasing the effectiveness of WhereIsIt in reuniting people with their belongings.
+                    Showcasing the effectiveness of Lost Nest in reuniting people with their belongings.
                 </motion.p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
                     <motion.div

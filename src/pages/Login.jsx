@@ -3,7 +3,7 @@ import { AuthContext } from "@/provider/AuthProvider";
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
     useDocumentTitle("Login || Lost Nest");
@@ -84,9 +84,9 @@ const Login = () => {
                     </button>
                     <p className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
                         Don&apos;t have an account?{' '}
-                        <a href="/register" className="text-blue-600 dark:text-blue-400 hover:underline">
+                        <Link to={"/register"} className="text-blue-600 dark:text-blue-400 hover:underline">
                             Register
-                        </a>
+                        </Link>
                     </p>
                 </form>
 

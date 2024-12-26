@@ -3,7 +3,7 @@ import { AuthContext } from "@/provider/AuthProvider";
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { FaGoogle } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
     useDocumentTitle("Register || Lost Nest");
@@ -120,9 +120,9 @@ const Register = () => {
                     </button>
                     <p className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
                         Already have an account?{' '}
-                        <a href="/login" className="text-blue-600 dark:text-blue-400 hover:underline">
+                        <Link to={"/login"} className="text-blue-600 dark:text-blue-400 hover:underline">
                             Sign in
-                        </a>
+                        </Link>
                     </p>
                 </form>
 

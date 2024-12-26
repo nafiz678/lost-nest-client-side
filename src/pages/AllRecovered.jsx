@@ -13,7 +13,7 @@ const AllRecovered = () => {
     const [toggle, setToggle] = useState(true)
     const [loader, setLoader] = useState(true)
     const [items, setItems] = useState([])
-    const [newItems, setNewItems] = useState([])
+    // const [newItems, setNewItems] = useState([])
 
     useEffect(() => {
         const fetchRecoverData = async () => {
@@ -29,12 +29,13 @@ const AllRecovered = () => {
         };
         fetchRecoverData()
     }, [myAxios, user.email])
+    console.log(items)
     
 
-    useEffect(() => {
-        const newRecoveredItems = items.filter(item => item.status === "Recovered")
-        setNewItems(newRecoveredItems)
-    }, [items])
+    // useEffect(() => {
+    //     const newRecoveredItems = items.filter(item => item.status === "Recovered")
+    //     setNewItems(newRecoveredItems)
+    // }, [items])
 
     return (
         <div>
@@ -55,11 +56,11 @@ const AllRecovered = () => {
             <div className="overflow-x-auto my-10">
             {loader ? (
                 <Loader></Loader>
-            ) : newItems.length > 0 ?  
+            ) : items.length > 0 ?  
             toggle ? 
-            <RecoveredDataTable newItems={newItems}></RecoveredDataTable> 
+            <RecoveredDataTable items={items}></RecoveredDataTable> 
             :
-            <RecoveredDataCard newItems={newItems}></RecoveredDataCard>
+            <RecoveredDataCard items={items}></RecoveredDataCard>
 
             : 
             (

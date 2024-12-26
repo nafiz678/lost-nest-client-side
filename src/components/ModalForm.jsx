@@ -14,7 +14,7 @@ const ModalForm = ({ item }) => {
     const modalRef = useRef(null);
     const navigate = useNavigate()
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         const form = e.target
@@ -25,22 +25,36 @@ const ModalForm = ({ item }) => {
         const recoverName = form?.recoverName?.value
         const recoverPhoto = form?.recoverPhoto?.value
 
-        const recoverItem = {itemId: item._id, recoverDate, recoverLocation, recoverEmail, recoverName, recoverPhoto, status: "recovered" }
+        const recoverItem = {
+            itemId: item._id,
+            thumbnail: item.thumbnail,
+            title: item.title,
+            description: item.description,
+            location: item.location,
+            contactName: item.contactName,
+            contactEmail: item.contactEmail,
+            recoverDate, recoverLocation,
+            recoverEmail, recoverName,
+            recoverPhoto,
+            status: "recovered"
+        }
+
+        if (user.email === item.contactEmail) return toast.error("Cannot recover own items")
 
 
         try {
             const { data } = await myAxios.post(`/recoveredItems`, recoverItem);
-        
+
             if (data.insertedId) {
                 form.reset();
                 toast.success("Recovered successfully");
                 navigate("/allRecovered")
-            }  
-        } catch (error) {
-            toast.error(error?.data?.message || "You have already recovered this item");
-            if (error.response) {
-                toast.error(error.response.data.message || "You have already recovered this item");
             }
+        } catch (error) {
+            // toast.error(error?.data?.message || "You have already recovered this item");
+            // const errorMessage = error?.response?.data?.message || error?.message || "An unknown error occurred";
+            // toast.error(errorMessage);
+            // console.log(errorMessage);
         }
 
     }
