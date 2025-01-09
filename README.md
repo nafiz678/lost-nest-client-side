@@ -1,34 +1,3 @@
-<h2>NPM Packages Used</h2>
-<ul>
-    <li>@lottiefiles/react-lottie-player</li>
-    <li>@radix-ui/react-dropdown-menu</li>
-    <li>@radix-ui/react-slot</li>
-    <li>@shadcn/ui</li>
-    <li>axios</li>
-    <li>class-variance-authority</li>
-    <li>clsx</li>
-    <li>date-fns</li>
-    <li>firebase</li>
-    <li>framer-motion</li>
-    <li>localforage</li>
-    <li>lucide-react</li>
-    <li>match-sorter</li>
-    <li>react</li>
-    <li>react-datepicker</li>
-    <li>react-day-picker</li>
-    <li>react-dom</li>
-    <li>react-hot-toast</li>
-    <li>react-icons</li>
-    <li>react-router-dom</li>
-    <li>shadcn-ui</li>
-    <li>sort-by</li>
-    <li>styled-components</li>
-    <li>swiper</li>
-    <li>tailwind-merge</li>
-    <li>tailwindcss-animate</li>
-</ul>
-
-
 <a href="https://lost-nest.web.app/"><h1>Lost Nest</h1></a>
 
 ## Purpose 🤝
