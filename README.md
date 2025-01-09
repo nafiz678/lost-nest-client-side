@@ -55,8 +55,7 @@
 - **localforage**: Offline storage utility for managing data locally.  
 - **lucide-react**: Icon library for React.  
 - **react**: JavaScript library for building user interfaces.  
-- **react-datepicker**: Date picker component for React.  
-- **react-day-picker**: Flexible date range picker for React.  
+- **react-datepicker**: Date picker component for React.   
 - **react-dom**: React library for DOM rendering.  
 - **react-hot-toast**: For creating toast notifications in React.  
 - **react-icons**: Collection of popular SVG icons for React.  
