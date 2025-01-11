@@ -34,7 +34,7 @@ const AllRecovered = () => {
 
     return (
         <div>
-            <div className="max-w-7xl mt-6 mx-auto flex-col md:flex-row items-start md:items-center flex justify-end gap-10 ">
+            <div className="max-w-7xl mt-16 mx-auto flex-col md:flex-row items-start md:items-center flex justify-end gap-10 ">
 
                 {/* Filters Dropdown */}
                 <div className="">

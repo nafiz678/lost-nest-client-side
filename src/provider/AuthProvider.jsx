@@ -1,4 +1,3 @@
-
 import auth from '@/firebase/firebase'
 import axios from 'axios';
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";

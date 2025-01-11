@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const ItemsCard = ({ item }) => {
     return (
-        <div className="rounded-lg shadow-md overflow-hidden bg-gradient-to-br from-teal-400 via-cyan-500 to-emerald-600 text-white transform transition-transform duration-300 hover:scale-105 flex flex-col xl:flex-row items-center xl:items-start justify-center md:justify-start py-4 dark:bg-gray-800">
+        <div className="rounded-lg cardAnim shadow-md overflow-hidden bg-gradient-to-br from-teal-400 via-cyan-500 to-emerald-600 text-white transform transition-transform duration-300 hover:scale-105 flex flex-col xl:flex-row items-center xl:items-start justify-center md:justify-start py-4 dark:bg-gray-800" style={{ opacity: 0 }} >
             <img
                 src={item.thumbnail}
                 className="h-52 w-52 object-cover md:rounded-tr-lg md:rounded-br-lg rounded-lg"

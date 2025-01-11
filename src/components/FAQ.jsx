@@ -66,10 +66,10 @@ function FAQ() {
             <div className="py-6 sm:py-12 px-4">
                 {faqs.map(faq => (
                     <AccordionItem value={`item-${faq.id}`} key={faq.id}>
-                        <AccordionTrigger className="text-lg sm:text-2xl text-gray-900 dark:text-gray-200">
+                        <AccordionTrigger className="text-lg sm:text-2xl text-gray-200">
                             {faq.question}
                         </AccordionTrigger>
-                        <AccordionContent className="text-base sm:text-lg text-gray-900 dark:text-gray-400">
+                        <AccordionContent className="text-base sm:text-lg text-gray-400">
                             {faq.answer}
                         </AccordionContent>
                     </AccordionItem>
