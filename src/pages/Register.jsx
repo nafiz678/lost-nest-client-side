@@ -134,7 +134,7 @@ const Register = () => {
 
                 <button
                     onClick={handleGoogleLogin}
-                    className="mt-4 w-full bg-[#f49f7b] text-white dark:bg-red-400 dark:hover:bg-red-300 hover:-translate-y-1 transition duration-200 py-2 px-4 rounded-md text-sm font-medium flex items-center justify-center"
+                    className="mt-4 w-full bg-teal-500 hover:bg-teal-600 text-white dark:bg-teal-500 dark:hover:bg-teal-600 hover:-translate-y-1 transition duration-200 py-2 px-4 rounded-md text-sm font-medium flex items-center justify-center"
                 >
                     <FaGoogle className="mr-2"></FaGoogle>
                     Continue with Google

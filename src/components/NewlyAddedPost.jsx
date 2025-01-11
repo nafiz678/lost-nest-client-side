@@ -43,7 +43,7 @@ const NewlyAddedPost = () => {
     };
 
     return (
-        <div className="bg-gray-100 dark:bg-gray-900 py-16">
+        <div className="bg-gray-100 dark:bg-gray-900 pb-16 pt-10">
             <motion.h2
                 className="text-3xl font-bold text-teal-600 dark:text-teal-400 text-center"
                 initial={{ opacity: 0, y: -20 }}

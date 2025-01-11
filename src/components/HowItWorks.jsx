@@ -43,7 +43,7 @@ const HowItWorks = () => {
     ];
 
     return (
-        <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <section className="py-20 bg-gray-50 dark:bg-gray-800" id="works">
             <div className="container mx-auto text-center">
                 <motion.h2
                     className="text-3xl font-bold text-teal-600 dark:text-teal-300"

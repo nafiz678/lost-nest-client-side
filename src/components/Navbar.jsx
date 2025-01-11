@@ -9,7 +9,7 @@ import { AuthContext } from '@/provider/AuthProvider';
 const Navbar = () => {
     const { user, logOut, loading } = useContext(AuthContext)
     return (
-        <div className="navbar justify-between">
+        <div className="fixed inset-x-0 max-w-screen-2xl navbar bg-white/70 text-black lg:px-20 py-4 mx-auto z-50 flex justify-between items-center backdrop-blur-xl ">
             <div className="">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn pl-0 btn-ghost md:hidden">
@@ -43,6 +43,9 @@ const Navbar = () => {
                         <li>
                             <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 py-2 text-black`} to={"/allItems"}>Lost & Found Items</NavLink>
                         </li>
+                        <li>
+                            <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 py-2 text-black`} to={"/aboutUs"}>About Us</NavLink>
+                        </li>
                         {/* {user ? 
                     //     <li >
                     //     <button
@@ -74,7 +77,8 @@ const Navbar = () => {
                     {user ? (
                         <>
                             <NavLink className={`bg-[#f0c35e] hidden md:inline-block hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/"}>Home</NavLink>
-                            <NavLink className={`bg-[#f0c35e] hidden md:inline-block hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/allItems"}>Lost & Found Items</NavLink>
+                            <NavLink className={`bg-[#f0c35e] hidden md:inline-block hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/allItems"}>All Items</NavLink>
+                            <NavLink className={`bg-[#f0c35e] hidden md:inline-block hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/aboutUs"}>About Us</NavLink>
                             <button
                                 onClick={logOut}
                                 className=' hidden md:inline-block  bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg'
@@ -132,7 +136,8 @@ const Navbar = () => {
                         :
                         <>
                             <NavLink className={`bg-[#f0c35e] hidden md:inline-block hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/"}>Home</NavLink>
-                            <NavLink className={`bg-[#f0c35e] hidden md:inline-block hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/allItems"}>Lost & Found Items</NavLink>
+                            <NavLink className={`bg-[#f0c35e] hidden md:inline-block hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/allItems"}>All Items</NavLink>
+                            <NavLink className={`bg-[#f0c35e] hidden md:inline-block hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/aboutUs"}>About Us</NavLink>
                             <NavLink className={`bg-[#f0c35e] hover:bg-[#f0c35e] hover:scale-105 active:scale-105 text-black py-[6px] mr-2 px-3 rounded-lg`} to={"/login"}>Login</NavLink>
                         </>
                     }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Footer = () => {
 
@@ -35,33 +36,38 @@ const Footer = () => {
                         </h3>
                         <ul className="space-y-3 text-sm">
                             <li>
-                                <a
+                                <Link
+                                to={"/aboutUs"}
                                 >
                                     About Us
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
+                                <Link 
+                                to={"/add-lost-found"}
                                 >
                                     Report Lost Item
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
+                                <Link
+                                to={"/add-lost-found"}
                                 >
                                     Report Found Item
-                                </a>
+                                </Link>
                             </li>
                             <li>
                                 <a
+                                href="#faq"
                                 >
                                     FAQ
                                 </a>
                             </li>
                             <li>
                                 <a
+                                href="#works"
                                 >
-                                    Contact Us
+                                    How It Works
                                 </a>
                             </li>
                         </ul>

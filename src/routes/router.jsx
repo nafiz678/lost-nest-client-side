@@ -11,6 +11,7 @@ import UpdateItem from "@/pages/UpdateItem";
 import AllLostAndFoundItems from "@/pages/AllLostAndFoundItems";
 import CardDetailsPage from "@/pages/CardDetailsPage";
 import AllRecovered from "@/pages/AllRecovered";
+import AboutUs from "@/pages/AboutUs";
 
 
 
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
           path: "/item/:id",
           loader: ({params})=> fetch(`${import.meta.env.VITE_API_URL}/item/${params.id}`),
           element: <PrivateRoute> <CardDetailsPage></CardDetailsPage> </PrivateRoute>
+        },
+        {
+          path: "/aboutUs",
+          element: <AboutUs></AboutUs> ,
         },
 
       ]

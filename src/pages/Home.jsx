@@ -1,3 +1,4 @@
+import FAQ from "@/components/FAQ";
 import HowItWorks from "@/components/HowItWorks";
 import NewlyAddedPost from "@/components/NewlyAddedPost";
 import Slider from "@/components/Slider";
@@ -24,6 +25,9 @@ const Home = () => {
             </div>
             <div className="">
                 <Testimonials></Testimonials>
+            </div>
+            <div className="bg-[#111827]">
+                <FAQ></FAQ>
             </div>
         </div>
     );

@@ -40,7 +40,7 @@ const AllLostAndFoundItems = () => {
 
 
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="w-11/12 mx-auto pt-10">
             <div className="max-w-7xl mt-6 mx-auto flex-col md:flex-row items-start md:items-center flex justify-end gap-10 ">
 
                 {/* Search Bar */}
@@ -63,7 +63,7 @@ const AllLostAndFoundItems = () => {
             {loader ?
                 <Loader></Loader>
                 :
-                <div className="grid max-w-7xl mx-auto my-20 items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-4">
+                <div className="grid max-w-7xl mx-auto mb-20 mt-10 items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-4">
                     {items.map(item =>
                         <ItemsCard key={item._id} item={item}></ItemsCard>
                     )}
