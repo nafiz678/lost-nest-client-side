@@ -1,6 +1,12 @@
+import { AuthContext } from "@/provider/AuthProvider";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CheckIcon, ChevronRightIcon } from "lucide-react";
+import { AnimatedSubscribeButton } from "./magicui/animated-subscribe-button";
 
 const Footer = () => {
+
+    const { user } = useContext(AuthContext);
 
     const images = [
         "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
@@ -23,9 +29,11 @@ const Footer = () => {
                             where hope finds its way back to you.
                         </p>
                         <div className="mt-6">
-                            <button className="bg-[#f49f7b] hover:-translate-y-1 duration-300 text-white px-6 py-2 rounded-full shadow-md transition-all">
-                                Join Us
-                            </button>
+                            {
+                                user ? null : <Link to={"/register"} className="bg-[#f49f7b] hover:-translate-y-1 duration-300 text-white px-6 py-2 rounded-full shadow-md transition-all">
+                                    Join Us
+                                </Link>
+                            }
                         </div>
                     </div>
 
@@ -37,35 +45,35 @@ const Footer = () => {
                         <ul className="space-y-3 text-sm">
                             <li>
                                 <Link
-                                to={"/aboutUs"}
+                                    to={"/aboutUs"}
                                 >
                                     About Us
                                 </Link>
                             </li>
                             <li>
-                                <Link 
-                                to={"/add-lost-found"}
+                                <Link
+                                    to={"/add-lost-found"}
                                 >
                                     Report Lost Item
                                 </Link>
                             </li>
                             <li>
                                 <Link
-                                to={"/add-lost-found"}
+                                    to={"/add-lost-found"}
                                 >
                                     Report Found Item
                                 </Link>
                             </li>
                             <li>
                                 <a
-                                href="#faq"
+                                    href="#faq"
                                 >
                                     FAQ
                                 </a>
                             </li>
                             <li>
                                 <a
-                                href="#works"
+                                    href="#works"
                                 >
                                     How It Works
                                 </a>
@@ -109,9 +117,21 @@ const Footer = () => {
                                 placeholder="Email"
                                 className="w-full px-4 py-3 rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 focus:ring-2 focus:ring-purple-500 outline-none"
                             />
-                            <button className="absolute right-1 top-1 bg-[#f49f7b] hover:bg-[#ff8c5c]  text-white px-6 py-2 rounded-full transition-all">
+
+                            <AnimatedSubscribeButton className="w-32 absolute right-1 top-1 bg-[#f49f7b] hover:bg-[#ff8c5c]  text-white px-4 py-2 rounded-full transition-all">
+                                <span className="group inline-flex items-center">
+                                    Subscribe
+                                    <ChevronRightIcon className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                                </span>
+                                <span className="group inline-flex items-center">
+                                    <CheckIcon className="mr-2 size-4" />
+                                    Subscribed
+                                </span>
+                            </AnimatedSubscribeButton>
+
+                            {/* <button className="absolute right-1 top-1 bg-[#f49f7b] hover:bg-[#ff8c5c]  text-white px-6 py-2 rounded-full transition-all">
                                 Subscribe
-                            </button>
+                            </button> */}
                         </div>
                     </div>
                 </div>
